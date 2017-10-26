@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        #shape
+        {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+			display: none;
+			position: relative;
+			top: 100px;
+			left: 200px;
+        }
+    </style>
+</head>
+<body>
+<p> time taken : <span id = "tt"></span></p>
+<p> Score : <span id = "scre"></span></p>
+<div id = "shape"></div>
+
+<script type="text/javascript">
+var sc = 0;
+var start = new Date().getTime();
+function makeShapeAppear()
+{
+var top = Math.random() * 400;
+var left = Math.random() * 400;
+var width = Math.random() *400;
+var height = Math.random() * 400;
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+document.getElementById("shape").style.background = getRandomColor();
+document.getElementById("shape").style.left = left + "px";
+document.getElementById("shape").style.top = top + "px";
+document.getElementById("shape").style.width = width + "px";
+document.getElementById("shape").style.height = height + "px";
+document.getElementById("shape").style.display = "block";
+sc++;
+start = new Date().getTime();
+}
+function appearAfterDelay()
+{
+
+setTimeout(makeShapeAppear,Math.random() *1000);
+}
+setTimeout(makeShapeAppear,Math.random() *2000);
+
+document.getElementById("shape").onclick = function()
+{
+    var end = new Date().getTime();
+    var time = (end - start)/1000;
+	
+    
+    document.getElementById("shape").style.display = "none";
+    document.getElementById("tt").innerHTML = time +"s";
+	if(time>1)
+	{
+	alert("game over");
+	}
+	document.getElementById("scre").innerHTML = sc;
+	
+	appearAfterDelay();
+}
+
+
+
+</script>
+</body>
+</html>
