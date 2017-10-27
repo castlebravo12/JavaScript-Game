@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+	<h1>Click to score</h1>
 <p> time taken : <span id = "tt"></span></p>
 <p> Score : <span id = "scre"></span></p>
 <div id = "shape"></div>
@@ -62,8 +63,9 @@ document.getElementById("shape").onclick = function()
     
     document.getElementById("shape").style.display = "none";
     document.getElementById("tt").innerHTML = time +"s";
-	if(time>1)
+	if(time>2)
 	{
+	sc =0;
 	alert("game over");
 	}
 	document.getElementById("scre").innerHTML = sc;
